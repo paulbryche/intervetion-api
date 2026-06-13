@@ -1,6 +1,0 @@
-b07851,127.0.0.1,GET,http://localhost:8000/,1781364730,,404,request
-8ee109,127.0.0.1,GET,http://localhost:8000/api,1781364797,,200,request
-45d2d6,127.0.0.1,GET,http://localhost:8000/api,1781364808,,200,request
-506560,127.0.0.1,GET,http://localhost:8000/api,1781389226,,200,request
-085894,127.0.0.1,GET,http://localhost:8000/,1781389438,,404,request
-d36252,127.0.0.1,GET,http://localhost:8000/api,1781389776,,200,request
