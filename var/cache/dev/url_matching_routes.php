@@ -31,23 +31,41 @@ return [
                         .'|validation_errors/([^/]++)(?'
                             .'|(*:257)'
                         .')'
+                        .'|intervention_requests(?'
+                            .'|/([^/\\.]++)(?:\\.([^/]++))?(*:316)'
+                            .'|(?:\\.([^/]++))?(?'
+                                .'|(*:342)'
+                            .')'
+                            .'|/([^/\\.]++)(?:\\.([^/]++))?(?'
+                                .'|(*:380)'
+                            .')'
+                        .')'
+                        .'|users(?'
+                            .'|/([^/\\.]++)(?:\\.([^/]++))?(*:424)'
+                            .'|(?:\\.([^/]++))?(?'
+                                .'|(*:450)'
+                            .')'
+                            .'|/([^/\\.]++)(?:\\.([^/]++))?(?'
+                                .'|(*:488)'
+                            .')'
+                        .')'
                     .')'
                 .')'
                 .'|/_(?'
-                    .'|error/(\\d+)(?:\\.([^/]++))?(*:299)'
-                    .'|wdt/([^/]++)(*:319)'
+                    .'|error/(\\d+)(?:\\.([^/]++))?(*:531)'
+                    .'|wdt/([^/]++)(*:551)'
                     .'|profiler/(?'
-                        .'|font/([^/\\.]++)\\.woff2(*:361)'
+                        .'|font/([^/\\.]++)\\.woff2(*:593)'
                         .'|([^/]++)(?'
                             .'|/(?'
-                                .'|search/results(*:398)'
-                                .'|router(*:412)'
+                                .'|search/results(*:630)'
+                                .'|router(*:644)'
                                 .'|exception(?'
-                                    .'|(*:432)'
-                                    .'|\\.css(*:445)'
+                                    .'|(*:664)'
+                                    .'|\\.css(*:677)'
                                 .')'
                             .')'
-                            .'|(*:455)'
+                            .'|(*:687)'
                         .')'
                     .')'
                 .')'
@@ -66,14 +84,32 @@ return [
             [['_route' => '_api_validation_errors_jsonapi', '_controller' => 'api_platform.symfony.main_controller', '_stateless' => null, '_api_resource_class' => 'ApiPlatform\\Validator\\Exception\\ValidationException', '_api_operation_name' => '_api_validation_errors_jsonapi', '_format' => null], ['id'], ['GET' => 0], null, false, true, null],
             [['_route' => '_api_validation_errors_xml', '_controller' => 'api_platform.symfony.main_controller', '_stateless' => null, '_api_resource_class' => 'ApiPlatform\\Validator\\Exception\\ValidationException', '_api_operation_name' => '_api_validation_errors_xml', '_format' => null], ['id'], ['GET' => 0], null, false, true, null],
         ],
-        299 => [[['_route' => '_preview_error', '_controller' => 'error_controller::preview', '_format' => 'html'], ['code', '_format'], null, null, false, true, null]],
-        319 => [[['_route' => '_wdt', '_controller' => 'web_profiler.controller.profiler::toolbarAction'], ['token'], null, null, false, true, null]],
-        361 => [[['_route' => '_profiler_font', '_controller' => 'web_profiler.controller.profiler::fontAction'], ['fontName'], null, null, false, false, null]],
-        398 => [[['_route' => '_profiler_search_results', '_controller' => 'web_profiler.controller.profiler::searchResultsAction'], ['token'], null, null, false, false, null]],
-        412 => [[['_route' => '_profiler_router', '_controller' => 'web_profiler.controller.router::panelAction'], ['token'], null, null, false, false, null]],
-        432 => [[['_route' => '_profiler_exception', '_controller' => 'web_profiler.controller.exception_panel::body'], ['token'], null, null, false, false, null]],
-        445 => [[['_route' => '_profiler_exception_css', '_controller' => 'web_profiler.controller.exception_panel::stylesheet'], ['token'], null, null, false, false, null]],
-        455 => [
+        316 => [[['_route' => '_api_/intervention_requests/{id}{._format}_get', '_controller' => 'api_platform.symfony.main_controller', '_stateless' => true, '_api_resource_class' => 'App\\Entity\\InterventionRequest', '_api_operation_name' => '_api_/intervention_requests/{id}{._format}_get', '_format' => null], ['id', '_format'], ['GET' => 0], null, false, true, null]],
+        342 => [
+            [['_route' => '_api_/intervention_requests{._format}_get_collection', '_controller' => 'api_platform.symfony.main_controller', '_stateless' => true, '_api_resource_class' => 'App\\Entity\\InterventionRequest', '_api_operation_name' => '_api_/intervention_requests{._format}_get_collection', '_format' => null], ['_format'], ['GET' => 0], null, false, true, null],
+            [['_route' => '_api_/intervention_requests{._format}_post', '_controller' => 'api_platform.symfony.main_controller', '_stateless' => true, '_api_resource_class' => 'App\\Entity\\InterventionRequest', '_api_operation_name' => '_api_/intervention_requests{._format}_post', '_format' => null], ['_format'], ['POST' => 0], null, false, true, null],
+        ],
+        380 => [
+            [['_route' => '_api_/intervention_requests/{id}{._format}_patch', '_controller' => 'api_platform.symfony.main_controller', '_stateless' => true, '_api_resource_class' => 'App\\Entity\\InterventionRequest', '_api_operation_name' => '_api_/intervention_requests/{id}{._format}_patch', '_format' => null], ['id', '_format'], ['PATCH' => 0], null, false, true, null],
+            [['_route' => '_api_/intervention_requests/{id}{._format}_delete', '_controller' => 'api_platform.symfony.main_controller', '_stateless' => true, '_api_resource_class' => 'App\\Entity\\InterventionRequest', '_api_operation_name' => '_api_/intervention_requests/{id}{._format}_delete', '_format' => null], ['id', '_format'], ['DELETE' => 0], null, false, true, null],
+        ],
+        424 => [[['_route' => '_api_/users/{id}{._format}_get', '_controller' => 'api_platform.symfony.main_controller', '_stateless' => true, '_api_resource_class' => 'App\\Entity\\User', '_api_operation_name' => '_api_/users/{id}{._format}_get', '_format' => null], ['id', '_format'], ['GET' => 0], null, false, true, null]],
+        450 => [
+            [['_route' => '_api_/users{._format}_get_collection', '_controller' => 'api_platform.symfony.main_controller', '_stateless' => true, '_api_resource_class' => 'App\\Entity\\User', '_api_operation_name' => '_api_/users{._format}_get_collection', '_format' => null], ['_format'], ['GET' => 0], null, false, true, null],
+            [['_route' => '_api_/users{._format}_post', '_controller' => 'api_platform.symfony.main_controller', '_stateless' => true, '_api_resource_class' => 'App\\Entity\\User', '_api_operation_name' => '_api_/users{._format}_post', '_format' => null], ['_format'], ['POST' => 0], null, false, true, null],
+        ],
+        488 => [
+            [['_route' => '_api_/users/{id}{._format}_patch', '_controller' => 'api_platform.symfony.main_controller', '_stateless' => true, '_api_resource_class' => 'App\\Entity\\User', '_api_operation_name' => '_api_/users/{id}{._format}_patch', '_format' => null], ['id', '_format'], ['PATCH' => 0], null, false, true, null],
+            [['_route' => '_api_/users/{id}{._format}_delete', '_controller' => 'api_platform.symfony.main_controller', '_stateless' => true, '_api_resource_class' => 'App\\Entity\\User', '_api_operation_name' => '_api_/users/{id}{._format}_delete', '_format' => null], ['id', '_format'], ['DELETE' => 0], null, false, true, null],
+        ],
+        531 => [[['_route' => '_preview_error', '_controller' => 'error_controller::preview', '_format' => 'html'], ['code', '_format'], null, null, false, true, null]],
+        551 => [[['_route' => '_wdt', '_controller' => 'web_profiler.controller.profiler::toolbarAction'], ['token'], null, null, false, true, null]],
+        593 => [[['_route' => '_profiler_font', '_controller' => 'web_profiler.controller.profiler::fontAction'], ['fontName'], null, null, false, false, null]],
+        630 => [[['_route' => '_profiler_search_results', '_controller' => 'web_profiler.controller.profiler::searchResultsAction'], ['token'], null, null, false, false, null]],
+        644 => [[['_route' => '_profiler_router', '_controller' => 'web_profiler.controller.router::panelAction'], ['token'], null, null, false, false, null]],
+        664 => [[['_route' => '_profiler_exception', '_controller' => 'web_profiler.controller.exception_panel::body'], ['token'], null, null, false, false, null]],
+        677 => [[['_route' => '_profiler_exception_css', '_controller' => 'web_profiler.controller.exception_panel::stylesheet'], ['token'], null, null, false, false, null]],
+        687 => [
             [['_route' => '_profiler', '_controller' => 'web_profiler.controller.profiler::panelAction'], ['token'], null, null, false, true, null],
             [null, null, null, null, false, false, 0],
         ],

@@ -4,12 +4,102 @@
 
 return [[
 
-'ApiPlatform_State_ApiResource_Error' => 0,
-'ApiPlatform_Validator_Exception_ValidationException' => 1,
+'App_Entity_InterventionRequest' => 0,
+'App_Entity_User' => 1,
+'ApiPlatform_State_ApiResource_Error' => 2,
+'ApiPlatform_Validator_Exception_ValidationException' => 3,
 
 ], [
 
 0 => new class() implements \Symfony\Component\Cache\Traits\CachedValueInterface { public function getValue(): mixed { return \Symfony\Component\VarExporter\Internal\Hydrator::hydrate(
+    $o = [
+        clone (($p = &\Symfony\Component\VarExporter\Internal\Registry::$prototypes)['Symfony\\Component\\Serializer\\Mapping\\ClassMetadata'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Symfony\\Component\\Serializer\\Mapping\\ClassMetadata')),
+        clone ($p['Symfony\\Component\\Serializer\\Mapping\\AttributeMetadata'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Symfony\\Component\\Serializer\\Mapping\\AttributeMetadata')),
+        clone $p['Symfony\\Component\\Serializer\\Mapping\\AttributeMetadata'],
+        clone $p['Symfony\\Component\\Serializer\\Mapping\\AttributeMetadata'],
+        clone $p['Symfony\\Component\\Serializer\\Mapping\\AttributeMetadata'],
+        clone $p['Symfony\\Component\\Serializer\\Mapping\\AttributeMetadata'],
+        clone $p['Symfony\\Component\\Serializer\\Mapping\\AttributeMetadata'],
+        clone $p['Symfony\\Component\\Serializer\\Mapping\\AttributeMetadata'],
+        clone $p['Symfony\\Component\\Serializer\\Mapping\\AttributeMetadata'],
+    ],
+    null,
+    [
+        'Symfony\\Component\\Serializer\\Mapping\\ClassMetadata' => [
+            'name' => [
+                'App\\Entity\\InterventionRequest',
+            ],
+            'attributesMetadata' => [
+                [
+                    'id' => $o[1],
+                    'type' => $o[2],
+                    'description' => $o[3],
+                    'address' => $o[4],
+                    'status' => $o[5],
+                    'createdAt' => $o[6],
+                    'closedAt' => $o[7],
+                    'interventionDate' => $o[8],
+                ],
+            ],
+        ],
+        'Symfony\\Component\\Serializer\\Mapping\\AttributeMetadata' => [
+            'name' => [
+                1 => 'id',
+                'type',
+                'description',
+                'address',
+                'status',
+                'createdAt',
+                'closedAt',
+                'interventionDate',
+            ],
+        ],
+    ],
+    $o[0],
+    []
+); } },
+1 => new class() implements \Symfony\Component\Cache\Traits\CachedValueInterface { public function getValue(): mixed { return \Symfony\Component\VarExporter\Internal\Hydrator::hydrate(
+    $o = [
+        clone (($p = &\Symfony\Component\VarExporter\Internal\Registry::$prototypes)['Symfony\\Component\\Serializer\\Mapping\\ClassMetadata'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Symfony\\Component\\Serializer\\Mapping\\ClassMetadata')),
+        clone ($p['Symfony\\Component\\Serializer\\Mapping\\AttributeMetadata'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Symfony\\Component\\Serializer\\Mapping\\AttributeMetadata')),
+        clone $p['Symfony\\Component\\Serializer\\Mapping\\AttributeMetadata'],
+        clone $p['Symfony\\Component\\Serializer\\Mapping\\AttributeMetadata'],
+        clone $p['Symfony\\Component\\Serializer\\Mapping\\AttributeMetadata'],
+        clone $p['Symfony\\Component\\Serializer\\Mapping\\AttributeMetadata'],
+        clone $p['Symfony\\Component\\Serializer\\Mapping\\AttributeMetadata'],
+    ],
+    null,
+    [
+        'Symfony\\Component\\Serializer\\Mapping\\ClassMetadata' => [
+            'name' => [
+                'App\\Entity\\User',
+            ],
+            'attributesMetadata' => [
+                [
+                    'id' => $o[1],
+                    'firstname' => $o[2],
+                    'lastname' => $o[3],
+                    'email' => $o[4],
+                    'role' => $o[5],
+                    'createdAt' => $o[6],
+                ],
+            ],
+        ],
+        'Symfony\\Component\\Serializer\\Mapping\\AttributeMetadata' => [
+            'name' => [
+                1 => 'id',
+                'firstname',
+                'lastname',
+                'email',
+                'role',
+                'createdAt',
+            ],
+        ],
+    ],
+    $o[0],
+    []
+); } },
+2 => new class() implements \Symfony\Component\Cache\Traits\CachedValueInterface { public function getValue(): mixed { return \Symfony\Component\VarExporter\Internal\Hydrator::hydrate(
     $o = [
         clone (($p = &\Symfony\Component\VarExporter\Internal\Registry::$prototypes)['Symfony\\Component\\Serializer\\Mapping\\ClassMetadata'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Symfony\\Component\\Serializer\\Mapping\\ClassMetadata')),
         clone ($p['Symfony\\Component\\Serializer\\Mapping\\AttributeMetadata'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Symfony\\Component\\Serializer\\Mapping\\AttributeMetadata')),
@@ -141,7 +231,7 @@ return [[
     $o[0],
     []
 ); } },
-1 => new class() implements \Symfony\Component\Cache\Traits\CachedValueInterface { public function getValue(): mixed { return \Symfony\Component\VarExporter\Internal\Hydrator::hydrate(
+3 => new class() implements \Symfony\Component\Cache\Traits\CachedValueInterface { public function getValue(): mixed { return \Symfony\Component\VarExporter\Internal\Hydrator::hydrate(
     $o = [
         clone (($p = &\Symfony\Component\VarExporter\Internal\Registry::$prototypes)['Symfony\\Component\\Serializer\\Mapping\\ClassMetadata'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Symfony\\Component\\Serializer\\Mapping\\ClassMetadata')),
         clone ($p['Symfony\\Component\\Serializer\\Mapping\\AttributeMetadata'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Symfony\\Component\\Serializer\\Mapping\\AttributeMetadata')),

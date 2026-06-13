@@ -6,7 +6,9 @@ use App\Enum\RequestStatus;
 use App\Enum\RequestType;
 use App\Repository\InterventionRequestRepository;
 use Doctrine\ORM\Mapping as ORM;
+use ApiPlatform\Metadata\ApiResource;
 
+#[ApiResource]
 #[ORM\Entity(repositoryClass: InterventionRequestRepository::class)]
 class InterventionRequest
 {
