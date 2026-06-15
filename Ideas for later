@@ -1,7 +1,9 @@
-Possible d'avoir plusieurs UserRole sur les user
+Authentification liée aux Users
+
+Possible d'avoir plusieurs UserRole sur les user exemple un admin et tech
 Possible d'avoir plusieurs tech sur les demandes
-Ajout de commentaires de suivis sur les demandes
-Historique des changement de status
+Ajout de commentaires de suivis sur liés aux demandes ManytoOne sur Comments
+Historique des changement de status avec lien sur la request
 Planning tech
 Plusieurs admin pour une demande (cas d'absences ect...)
 Passer la manyToOne de assignedAdmin à Many to Many en cas de gestion multiple par une équipe admin par exemple

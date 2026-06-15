@@ -2,13 +2,14 @@
 
 namespace App\Entity;
 
-use App\Enum\RequestStatus;
+use App\Enum\RequestStatus as RequestStatus;
 use App\Enum\RequestType;
 use App\Repository\InterventionRequestRepository;
 use Doctrine\ORM\Mapping as ORM;
 use ApiPlatform\Metadata\ApiResource;
 
 #[ApiResource]
+#[ORM\HasLifecycleCallbacks]
 #[ORM\Entity(repositoryClass: InterventionRequestRepository::class)]
 class InterventionRequest
 {
@@ -27,7 +28,7 @@ class InterventionRequest
     private ?string $address = null;
 
     #[ORM\Column(enumType: RequestStatus::class)]
-    private ?RequestStatus $status = null;
+    private ?RequestStatus $status = RequestStatus::PENDING;
 
     #[ORM\Column]
     private ?\DateTimeImmutable $createdAt = null;
@@ -106,11 +107,12 @@ class InterventionRequest
         return $this->createdAt;
     }
 
-    public function setCreatedAt(\DateTimeImmutable $createdAt): static
+    #[ORM\PrePersist]
+    public function setCreatedAtValue(): void
     {
-        $this->createdAt = $createdAt;
-
-        return $this;
+        if ($this->createdAt === null) {
+            $this->createdAt = new \DateTimeImmutable();
+        }
     }
 
     public function getClosedAt(): ?\DateTimeImmutable

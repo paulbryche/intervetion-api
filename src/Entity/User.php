@@ -6,8 +6,10 @@ use App\Enum\UserRole;
 use App\Repository\UserRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
-use Doctrine\ORM\Mapping as ORM;
 use ApiPlatform\Metadata\ApiResource;
+
+use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 #[ApiResource]
 #[ORM\Entity(repositoryClass: UserRepository::class)]
@@ -25,6 +27,9 @@ class User
     #[ORM\Column(length: 255)]
     private ?string $lastname = null;
 
+    #[Assert\NotBlank]
+    #[Assert\Email]
+    #[Assert\Unique]
     #[ORM\Column(length: 255)]
     private ?string $email = null;
 
