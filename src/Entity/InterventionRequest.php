@@ -38,6 +38,16 @@ class InterventionRequest
     #[ORM\Column(nullable: true)]
     private ?\DateTimeImmutable $interventionDate = null;
 
+    #[ORM\ManyToOne(inversedBy: 'requestsCreated')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?User $requester = null;
+
+    #[ORM\ManyToOne(inversedBy: 'requestsManaged')]
+    private ?User $assignedAdmin = null;
+
+    #[ORM\ManyToOne(inversedBy: 'requestsAssigned')]
+    private ?User $assignedTechnician = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -123,6 +133,42 @@ class InterventionRequest
     public function setInterventionDate(?\DateTimeImmutable $interventionDate): static
     {
         $this->interventionDate = $interventionDate;
+
+        return $this;
+    }
+
+    public function getRequester(): ?User
+    {
+        return $this->requester;
+    }
+
+    public function setRequester(?User $requester): static
+    {
+        $this->requester = $requester;
+
+        return $this;
+    }
+
+    public function getAssignedAdmin(): ?User
+    {
+        return $this->assignedAdmin;
+    }
+
+    public function setAssignedAdmin(?User $assignedAdmin): static
+    {
+        $this->assignedAdmin = $assignedAdmin;
+
+        return $this;
+    }
+
+    public function getAssignedTechnician(): ?User
+    {
+        return $this->assignedTechnician;
+    }
+
+    public function setAssignedTechnician(?User $assignedTechnician): static
+    {
+        $this->assignedTechnician = $assignedTechnician;
 
         return $this;
     }
