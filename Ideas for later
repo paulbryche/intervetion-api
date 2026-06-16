@@ -8,3 +8,4 @@ Planning tech
 Plusieurs admin pour une demande (cas d'absences ect...)
 Passer la manyToOne de assignedAdmin à Many to Many en cas de gestion multiple par une équipe admin par exemple
 Idem pour l'éventualité ou plusieurs techniciens peuvent avoir une request à gérer exemple demande de pause cuisine avec plombier , elec et tech cuisine
+créer une class adress pour plus de précision dans un formulaire et dans le mail

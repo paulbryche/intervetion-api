@@ -2,14 +2,17 @@
 
 namespace App\Service;
 
-namespace App\Service;
-
 use App\Entity\InterventionRequest;
 use App\Enum\RequestStatus;
+use App\Message\InterventionAssignedMessage;
 use DomainException;
+use Symfony\Component\Messenger\MessageBusInterface;
 
 class InterventionWorkflow
 {
+    public function __construct(
+        private MessageBusInterface $bus,
+    ) {}
     public function transition(InterventionRequest $request, RequestStatus $newStatus): void
     {
         $current = $request->getStatus();
@@ -32,6 +35,13 @@ class InterventionWorkflow
 
     private function fromPending(InterventionRequest $request, RequestStatus $newStatus): void
     {
+        if ($newStatus === RequestStatus::ASSIGNED) {
+            $request->setStatus(RequestStatus::ASSIGNED);
+
+            $this->bus->dispatch(
+                new InterventionAssignedMessage($request->getId())
+            );
+        }
         match ($newStatus) {
             RequestStatus::ASSIGNED => $request->setStatus(RequestStatus::ASSIGNED),
             RequestStatus::REJECTED => $request->setStatus(RequestStatus::REJECTED),
@@ -47,5 +57,27 @@ class InterventionWorkflow
             RequestStatus::REJECTED => $request->setStatus(RequestStatus::REJECTED),
             default => throw new DomainException('Invalid transition from ASSIGNED'),
         };
+    }
+
+    public function assign($request) : void
+    {
+        $request->setStatus(RequestStatus::ASSIGNED);
+    }
+
+    public function close($request) : void
+    {
+        $request->setStatus(RequestStatus::CLOSED);
+        $request->setClosedAt(new \DateTimeImmutable());
+    }
+
+    public function reject($request) : void
+    {
+        $request->setStatus(RequestStatus::REJECTED);
+        $request->setClosedAt(new \DateTimeImmutable());
+    }
+
+    public function assignTechnician(InterventionRequest $request): void
+    {
+        // simple pour l'instant (on complexifiera après)
     }
 }

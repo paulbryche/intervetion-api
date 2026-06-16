@@ -43,6 +43,16 @@ symfony server:start
 ## 📡 Accès à l’application
 API : http://localhost:8000/api
 
+📦 Endpoints principaux
+Create request
+POST /api/intervention-requests
+Assign technician
+POST /api/intervention-requests/{id}/assign-technician/{techId}
+Close request
+POST /api/intervention-requests/{id}/close
+Reject request
+POST /api/intervention-requests/{id}/reject
+
 ## 🧱 Architecture du projet
 
 - API Platform pour exposer l’API REST
@@ -73,17 +83,16 @@ Statuts :
 
 Lors de la création d’une demande :
 - Un message est dispatché via Symfony Messenger
-- Un handler simule une notification technicien
+- Un handler simule une notification technicien au travers de la création d'un fichier log
 - Traitement asynchrone
 
 ## 🔮 Améliorations possibles
 
-- Authentification JWT
+- Authentification
 - Gestion des techniciens
 - Historique des transitions
 - Notifications email réelles
 - Tests unitaires et fonctionnels
-- CI/CD GitHub Actions
 
 ## ▶️ Lancer le projet (résumé)
 git clone https://github.com/paulbryche/intervetion-api.git
